@@ -1,0 +1,31 @@
+header {
+    text-align: center;
+    background-color: aqua;
+}
+h1 {
+    color: violet;
+}
+h2 {
+    color: goldenrod;
+}
+h3 {
+    color: dodgerblue;
+}
+
+img {
+    box-shadow: 10px 10px 5px black;
+}
+
+section {
+    background-color: antiquewhite;
+}
+
+p {
+    font-size: 15px;
+    color: gray;
+}
+
+ul {
+    border-style: solid;
+    color: grey;
+}

@@ -1,0 +1,38 @@
+h1 {
+    color: blue;
+    font-size: 40px;
+}
+
+.purple{
+    color: purple;
+}
+
+.red {
+    color: red;
+}
+
+.black {
+    background-color: black;
+}
+
+.big-font {
+    font-size: 40px;
+}
+
+.small-font {
+    font-size: 10px;
+}
+
+.bold-font {
+    font-weight: bold;
+}
+
+.centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -100px;
+  }
+
+  

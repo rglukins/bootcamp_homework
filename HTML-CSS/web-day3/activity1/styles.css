@@ -1,0 +1,38 @@
+body{
+    background: #f1f1f1;
+}
+
+.navbar {
+    padding: 10px;
+    background: #5191fd;
+}
+
+.navbar li{
+    display: inline-block;
+    padding: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+    background: #5191fd; 
+    border-radius: 3px;
+}
+
+.navbar li a {
+    color: #000;
+    text-decoration: none;
+}
+
+.header{
+    height: 200px;
+    padding-top: 20px;
+    background: #cdcdcd;
+}
+
+.header h1 {
+    font-size: 80px;
+    text-align: center;
+}
+
+h3 {
+    font-size: 30px;
+}

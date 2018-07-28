@@ -1,0 +1,29 @@
+h1 {
+    position: absolute;
+    top: 50%;
+    left: 45%;
+}
+
+h2 {
+    position: absolute;
+    top: 55%;
+    left: 45%;
+}
+
+h3 {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+}
+
+h4 {
+    position: absolute;
+    top:95%;
+    left: 80%;
+}
+
+h5 {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+}
