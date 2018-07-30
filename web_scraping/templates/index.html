@@ -12,38 +12,81 @@
             <h1 class="display-3">Mission to Mars</h1>
             <p class="lead">The latest news from the planet that's only 225 million km away!</p>
             <p class="lead">
-                <a class="btn btn-primary btn-lg" href="#" role="button">Scrape Latest Mars Data</a>
+                <a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape Latest Mars Data</a>
             </p>
     </div>
     <div class="container">
         <div class="row">
             <h2>Latest Mars News</h2>
-            <p>"Insert the scraped data from NASA</p>
+            <hr>
+        </div>   
+        <div class="row">
+            <h5>{{mars.nasa_title}}</h5>
+        
+            <p>{{mars.nasa_paragraph}}</p>
         </div>
+       
     </div>
     <div class="container">
         <div class="row">
-                <div class="col-8">col-8
+                <div class="col-8">
                     <h1>Featured Mars Image</h1>
-                    <img src="Insert jpl image" alt="Featured Mars Image">
+                    <img src= {{mars.featured_image_url}} alt="Featured Mars Image" width="700">
+                </div>
                 <div class="col-4">
                         <div class="card border-primary mb-3" style="max-width: 20rem;">
                                  <div class="card-body">
                                   <h4 class="card-title">Mars Weather</h4>
-                                  <p class="card-text">Insert text from Mars Weather Tweet.</p>
+                                  <p class="card-text">{{mars.weather}}.</p>
                                 </div>
-                        <div class="container">Mars Facts</div>
-                            <table>Insert Table Data scraped from Mars Facts</table>
+                        </div>
+                        <div class="container">
+                            <h2 class="text-center">Mars Facts</h2> 
+                            <div class="container">
+                            {{mars.table|safe}}
+                            </div>
+                        </div>
                 </div>
         </div>
     </div>
+    <br>
+    <br>
+   <hr>
     <div class="container">
-            <h4 class="text-center">Martian Hemispheres</h4>
-            <hr>
-            <img src="" alt="">
-            <img src="" alt="">
-            <img src="" alt="">
-            <img src="" alt="">
+        <div class="row">
+            <div class="col">
+             <h1 class="text-center">Martian Hemispheres</h1>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col">
+                <div class="container">
+                    <h5>{{mars.hemispheres[0]['title']}}</h5>
+                    <img src={{mars.hemispheres[0]['img_url']}} alt="" width="400">
+                </div>
+            </div>
+            <div class="col">
+                <div class="container">
+                    <h5 class=>{{mars.hemispheres[1]['title']}}</h5>
+                    <img src={{mars.hemispheres[1]['img_url']}} alt="" width="400">
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="container">
+        <dir class="row">
+            <div class="col">
+                <h5>{{mars.hemispheres[2]['title']}}</h5>
+                <img src={{mars.hemispheres[2]['img_url']}} alt="" width="400">
+            </div>
+            <div class="col">
+                <h5>{{mars.hemispheres[3]['title']}}</h5>
+                <img src={{mars.hemispheres[3]['img_url']}} alt="" width="400">
+            </div>
+        </dir>
     </div>
 
 
