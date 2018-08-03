@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Alien Invasion</title>
+    <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.min.css" >
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand" href="index.html">Find UFO Sightings
+                <img class="nav-alien" src="https://cdn.pixabay.com/photo/2016/03/31/21/06/alien-1296189__340.png" width="10"></img>
+            </a>
+        </nav>
+        <div class="hero text-center">
+            <h1>UFO Sightings</h1>
+            <p>We're not alone!</p>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <aside class="filters">
+                        <div class="panel panel-default">
+                          <div class="panel-heading"></div>
+                          <div class="panel-body">
+                            <form>
+                              <div class="form-group">
+                                <ul class="list-group" id="filters">
+                                  <li class="filter list-group-item">
+                                    <label for="date">Enter a Date</label>
+                                    <input class="form-control" id="datetime" type="text" placeholder="1/11/2011">
+                                    <button id="search-btn" type="submit" class="btn btn-default">Search</button>
+                                  </li>
+                                </ul>
+                            </form>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading"></div>
+                            <div class="panel-body">
+                              <form>
+                                <div class="form-group">
+                                  <ul class="list-group" id="filters">
+                                    <li class="filter list-group-item">Filter Data
+                                  <li class="filter list-group-item">
+                                    <select class="form-control" id="city" onchange="getCityData(this.value)">
+                                        <option value="default">city</option>
+                                        <!-- javascript appended list here -->
+                                    </select>                                  
+                                    </li>
+                                  <li class="filter list-group-item">
+                                    <select class="form-control" id="state" onchange="getStateData(this.value)">
+                                        <option value="default">state</option>
+                                         <!-- javascript appended list here -->
+                                    </select>
+                                  </li>
+                                  <li class="filter list-group-item">
+                                    <select class="form-control" id="country" onchange="getCountryData(this.value)">
+                                        <option value="default">country</option>
+                                         <!-- javascript appended list here -->
+                                    </select>
+                                  </li>
+                                  <li class="filter list-group-item">
+                                        <select class="form-control" id="shape" onchange="getShapeData(this.value)">
+                                            <option value="default">shape</option>
+                                           <!-- javascript appended list here -->
+                                      </select>
+                                  </li>
+                                    </ul>
+            
+                              </div>
+                              
+                            </form>
+                          </div>
+                        </div>
+                      </aside>
+                </div>
+
+
+                <div class="col-md-10">
+                    <div id="table-area" class="">
+                    <table id="ufo-table" class="table table-hover">
+                        <thead>
+                        <tr class="table-warning">
+                            <th class=class="table-head "><span class="text-primary">Date</span> </th>
+                            <th class="table-head"><span class="text-primary">City</span></th>
+                            <th class="table-head"><span class="text-primary">State</span></th>
+                            <th class="table-head"><span class="text-primary">Country</span></th>
+                            <th class="table-head"><span class="text-primary">Shape</span></th>
+                            <th class="table-head"><span class="text-primary">Duration</span></th>
+                            <th class="table-head"><span class="text-primary">Comments</span></th>
+                        </tr>
+                        </thead>
+                        <tbody id="ufo-table-body">
+                            <tr class="table-secondary">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        <footer class="footer">
+            <span class="bottom">UFO Sightings</span>
+        </footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
+  <script src="static/js/data.js"></script>
+  <script src="static/js/app.js"></script>
+    
+
+</body>
+</html>
