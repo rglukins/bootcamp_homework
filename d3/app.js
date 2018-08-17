@@ -105,7 +105,7 @@ function makeResponsive(){
             .attr("x", 0 - (height / 2) - 10)
             .attr("dy", "1em")
             .attr("class", "axisText")
-            .text("Smokers (%)");
+            .text("Smokes (%)");
 
         let incomeAxis = chartGroup.append("text")
             .attr("transform", `translate(${width/2 - 40}, ${height + margin.top + 10})`)
@@ -116,7 +116,7 @@ function makeResponsive(){
         let toolTip = d3.tip()
             .attr("class", 'd3-tip')
             .offset([80, -60])
-            .html( d => `<h5>${d.state}:</h5><p>Income: ${d.income}</p><p>Smokers: ${d.smokes}</p>`);
+            .html( d => `<h5>${d.state}:</h5><p>Income: ${d.income}</p><p>Smokes: ${d.smokes}%</p>`);
 
         // Create the toolTip in the chartgroup
         node.call(toolTip);
