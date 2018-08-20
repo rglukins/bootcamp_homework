@@ -1,38 +1,42 @@
-// Make the browser responsive if/when resized
-d3.select(window).on("resize", makeResponsive);
+// let svgWidth = 960;
+let svgWidth = parseInt(d3.select('#scatter').style('width'));
+let svgHeight = 500;
 
-// make the browser responsive when it loads
-makeResponsive();
-
-// create the makeResponsive function
-function makeResponsive(){
-
-    // Set up the chart parameters
-
-    let svgWidth = window.innerWidth;
-    let svgHeight = window.innerHeight;
-
-    var margin = {
-        top: 40,
-        right: 100,
-        bottom: 120,
-        left: 110
-    };
+let margin = {
+    top: 20,
+    right: 40,
+    bottom: 80,
+    left: 40
+};
   
   
-    let width = svgWidth - margin.left - margin.right;
-    let height = svgHeight - margin["top"] - margin["bottom"];
+var width = svgWidth - margin.left - margin.right;
+var height = svgHeight - margin.top - margin.bottom;;
 
-    // Append the svg element
+// create and svg wrapper and append the svg element
 
-    let svg = d3.select("body")
-            .append("svg")
-            .attr('width', svgWidth)
-            .attr('height', svgHeight)
+let svg = d3.select("#scatter")
+    .append("svg")
+    .attr('width', svgWidth)
+    .attr('height', svgHeight);
 
+let chartGroup = svg.append("g")
+    .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
-    let chartGroup = svg.append("g")
-    .attr("transform", `translate(${margin.left}, ${margin.top})`)
+let chosenXAxis = "Household Income ($)";
+
+//create function to shift axis scale when label upon click of label
+function xScale(healthData, chosenXAxis) {
+    // create scales
+    var xLinearScale = d3.scaleLinear()
+      .domain([d3.min(healthData, d => d[chosenXAxis]) * 0.8,
+        d3.max(healthData, d => d[chosenXAxis]) * 1.2
+      ])
+      .range([0, width]);
+  
+    return xLinearScale;
+}
+
 
     // Setup data import
 
@@ -101,22 +105,22 @@ function makeResponsive(){
         // Create axes labels
         let smokersAxis = chartGroup.append("text")
             .attr("transform", "rotate(-90)")
-            .attr("y", 0 - margin.left + 60)
+            .attr("y", 0 - margin.left - 5)
             .attr("x", 0 - (height / 2) - 10)
             .attr("dy", "1em")
             .attr("class", "axisText")
-            .text("Smokes (%)");
+            .text("Smokers (%)");
 
         let incomeAxis = chartGroup.append("text")
-            .attr("transform", `translate(${width/2 - 40}, ${height + margin.top + 10})`)
+            .attr("transform", `translate(${width/2 - 40}, ${height + margin.top + 15})`)
             .attr("class", "axisText")
-            .text("Household Income ($)");
+            .text("Household Income (Median)");
 
         // Initialize the Tooltip
         let toolTip = d3.tip()
             .attr("class", 'd3-tip')
             .offset([80, -60])
-            .html( d => `<h5>${d.state}:</h5><p>Income: ${d.income}</p><p>Smokes: ${d.smokes}%</p>`);
+            .html( d => `<h5>${d.state}:</h5><p>Income: $${d.income}</p><p>Smokers: ${d.smokes}%</p>`);
 
         // Create the toolTip in the chartgroup
         node.call(toolTip);
@@ -128,4 +132,3 @@ function makeResponsive(){
         node.on('mouseout', function(d) { toolTip.hide(d, this); });
     });
 
-}
